@@ -1,0 +1,24 @@
+\* Basic Link Path Formulation *\
+Minimize
+OBJ: 2 xDN0_N2P_0 + 3 xDN0_N2P_1 + 4 xDN0_N2P_2 + 2 xDN0_N3P_0 + 3 xDN0_N3P_1
+ + 3 xDN0_N3P_2 + 2 xDN1_N6P_0 + 3 xDN1_N6P_1 + 3 xDN1_N6P_2 + xDN2_N3P_0
+ + 4 xDN2_N3P_1 + 5 xDN2_N3P_2 + 2 xDN3_N5P_0 + 2 xDN3_N5P_1 + 3 xDN3_N5P_2
+Subject To
+DemandSat_N0_N2: xDN0_N2P_0 + xDN0_N2P_1 + xDN0_N2P_2 = 16
+DemandSat_N0_N3: xDN0_N3P_0 + xDN0_N3P_1 + xDN0_N3P_2 = 25
+DemandSat_N1_N6: xDN1_N6P_0 + xDN1_N6P_1 + xDN1_N6P_2 = 25
+DemandSat_N2_N3: xDN2_N3P_0 + xDN2_N3P_1 + xDN2_N3P_2 = 29
+DemandSat_N3_N5: xDN3_N5P_0 + xDN3_N5P_1 + xDN3_N5P_2 = 31
+_dummy: __dummy = 0
+LinkCap|L0_1: __dummy <= 40
+LinkCap|L0_5: __dummy <= 40
+LinkCap|L0_6: __dummy <= 40
+LinkCap|L1_2: __dummy <= 40
+LinkCap|L2_3: __dummy <= 40
+LinkCap|L3_4: __dummy <= 40
+LinkCap|L3_6: __dummy <= 40
+LinkCap|L4_5: __dummy <= 40
+LinkCap|L6_5: __dummy <= 40
+Bounds
+__dummy = 0
+End

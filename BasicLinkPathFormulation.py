@@ -20,11 +20,14 @@ if __name__ == '__main__':
     # First some nice lists to help us stay organized
     demand_list = sorted(demands.keys())
     link_list = sorted(g.edges())
-    #print(link_list)
-    node_list = sorted(g.nodes())
-    print (demand_list)
-    print (link_list)
-    print (node_list)
+    print("g.edges(): ", g.edges())
+    print("g.nodes(): ", g.nodes())
+    node_list = list((g.nodes()))
+    node_list = sorted(node_list[0:7])
+    #print("debug: ",node_list[0])
+    print("demand_list: ", demand_list)
+    print("link_list; ", link_list)
+    print("node_list: ", node_list)
     prob = LpProblem("Basic Link Path Formulation", LpMinimize)
     # Create a dictionary to hold demand path variables
     # these will be indexed by a tuple of (demand, path_num) pairs.
@@ -62,8 +65,8 @@ if __name__ == '__main__':
 
     prob.writeLP("basicLinkPathEx1.lpt")
     prob.solve()
-    print ("Status:", LpStatus[prob.status])
+    print("Status:", LpStatus[prob.status])
     for v in prob.variables():
-        print (v.name, "=", v.varValue)
+        print(v.name, "=", v.varValue)
 
 
