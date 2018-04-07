@@ -1,0 +1,120 @@
+{"directed": false, "multigraph": false, "graph": [], "nodes": [
+    {
+        "id": "N0",
+        "type": "switch",
+        "x": 94.48333740234375,
+        "y": 117,
+        "demand": "",
+        "cost": "",
+        "capacity": ""
+    },
+    {
+        "id": "N1",
+        "type": "switch",
+        "x": 90.48333740234375,
+        "y": 382,
+        "demand": "",
+        "cost": "",
+        "capacity": ""
+    },
+    {
+        "id": "N2",
+        "type": "switch",
+        "x": 230.48333740234375,
+        "y": 499,
+        "demand": "",
+        "cost": "",
+        "capacity": ""
+    },
+    {
+        "id": "N3",
+        "type": "switch",
+        "x": 381.48333740234375,
+        "y": 359,
+        "demand": "",
+        "cost": "",
+        "capacity": ""
+    },
+    {
+        "id": "N4",
+        "type": "switch",
+        "x": 585.4833374023438,
+        "y": 321,
+        "demand": "",
+        "cost": "",
+        "capacity": ""
+    },
+    {
+        "id": "N5",
+        "type": "switch",
+        "x": 533.4833374023438,
+        "y": 116,
+        "demand": "",
+        "cost": "",
+        "capacity": ""
+    },
+    {
+        "id": "N6",
+        "type": "switch",
+        "x": 265.48333740234375,
+        "y": 233,
+        "demand": "",
+        "cost": "",
+        "capacity": ""
+    }
+], "links": [
+    {
+        "source": 0,
+        "target": 1,
+        "capacity": 40,
+        "weight": 1
+    },
+    {
+        "source": 1,
+        "target": 2,
+        "capacity": 40,
+        "weight": 1
+    },
+    {
+        "source": 2,
+        "target": 3,
+        "capacity": 40,
+        "weight": 1
+    },
+    {
+        "source": 3,
+        "target": 4,
+        "capacity": 40,
+        "weight": 1
+    },
+    {
+        "source": 6,
+        "target": 3,
+        "capacity": 40,
+        "weight": 1
+    },
+    {
+        "source": 6,
+        "target": 0,
+        "capacity": 40,
+        "weight": 1
+    },
+    {
+        "source": 0,
+        "target": 5,
+        "capacity": 40,
+        "weight": 1
+    },
+    {
+        "source": 5,
+        "target": 4,
+        "capacity": 40,
+        "weight": 1
+    },
+    {
+        "source": 6,
+        "target": 5,
+        "capacity": 40,
+        "weight": 1
+    }
+]}

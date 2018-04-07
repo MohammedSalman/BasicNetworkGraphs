@@ -1,0 +1,27 @@
+[
+    {
+        "source": "N1",
+        "target": "N6",
+        "demand": 25
+    },
+    {
+        "source": "N0",
+        "target": "N3",
+        "demand": 25
+    },
+    {
+        "source": "N2",
+        "target": "N3",
+        "demand": 29
+    },
+    {
+        "source": "N0",
+        "target": "N2",
+        "demand": 16
+    },
+    {
+        "source": "N3",
+        "target": "N5",
+        "demand": 31
+    }
+]

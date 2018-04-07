@@ -1,0 +1,11 @@
+\* P&M Example 2.1 *\
+Minimize
+OBJ: 2 x12 + x123 + 2 x13 + x132 + x213 + 2 x23
+Subject To
+Demand1_2: x12 + x132 = 5
+Demand1_3: x123 + x13 = 7
+Demand2_3: x213 + x23 = 8
+Link1_2: x12 + x123 + x213 <= 10
+Link1_3: x13 + x132 + x213 <= 10
+Link2_3: x123 + x132 + x23 <= 15
+End
