@@ -1,0 +1,41 @@
+\* Basic Node Link Formulation *\
+Minimize
+OBJ: xL1_2_D1_2 + xL1_2_D1_3 + xL1_2_D2_1 + xL1_2_D2_3 + xL1_2_D3_1
+ + xL1_2_D3_2 + xL1_3_D1_2 + xL1_3_D1_3 + xL1_3_D2_1 + xL1_3_D2_3 + xL1_3_D3_1
+ + xL1_3_D3_2 + xL2_1_D1_2 + xL2_1_D1_3 + xL2_1_D2_1 + xL2_1_D2_3 + xL2_1_D3_1
+ + xL2_1_D3_2 + xL2_3_D1_2 + xL2_3_D1_3 + xL2_3_D2_1 + xL2_3_D2_3 + xL2_3_D3_1
+ + xL2_3_D3_2 + xL3_1_D1_2 + xL3_1_D1_3 + xL3_1_D2_1 + xL3_1_D2_3 + xL3_1_D3_1
+ + xL3_1_D3_2 + xL3_2_D1_2 + xL3_2_D1_3 + xL3_2_D2_1 + xL3_2_D2_3 + xL3_2_D3_1
+ + xL3_2_D3_2
+Subject To
+LinkCap|L1_2: xL1_2_D1_2 + xL1_2_D1_3 + xL1_2_D2_1 + xL1_2_D2_3 + xL1_2_D3_1
+ + xL1_2_D3_2 <= 10
+LinkCap|L1_3: xL1_3_D1_2 + xL1_3_D1_3 + xL1_3_D2_1 + xL1_3_D2_3 + xL1_3_D3_1
+ + xL1_3_D3_2 <= 10
+LinkCap|L2_1: xL2_1_D1_2 + xL2_1_D1_3 + xL2_1_D2_1 + xL2_1_D2_3 + xL2_1_D3_1
+ + xL2_1_D3_2 <= 10
+LinkCap|L2_3: xL2_3_D1_2 + xL2_3_D1_3 + xL2_3_D2_1 + xL2_3_D2_3 + xL2_3_D3_1
+ + xL2_3_D3_2 <= 7
+LinkCap|L3_1: xL3_1_D1_2 + xL3_1_D1_3 + xL3_1_D2_1 + xL3_1_D2_3 + xL3_1_D3_1
+ + xL3_1_D3_2 <= 10
+LinkCap|L3_2: xL3_2_D1_2 + xL3_2_D1_3 + xL3_2_D2_1 + xL3_2_D2_3 + xL3_2_D3_1
+ + xL3_2_D3_2 <= 7
+NodeCons|1D1_2: xL1_2_D1_2 + xL1_3_D1_2 - xL2_1_D1_2 - xL3_1_D1_2 = 5
+NodeCons|1D1_3: xL1_2_D1_3 + xL1_3_D1_3 - xL2_1_D1_3 - xL3_1_D1_3 = 7
+NodeCons|1D2_1: xL1_2_D2_1 + xL1_3_D2_1 - xL2_1_D2_1 - xL3_1_D2_1 = -5
+NodeCons|1D2_3: xL1_2_D2_3 + xL1_3_D2_3 - xL2_1_D2_3 - xL3_1_D2_3 = 0
+NodeCons|1D3_1: xL1_2_D3_1 + xL1_3_D3_1 - xL2_1_D3_1 - xL3_1_D3_1 = -7
+NodeCons|1D3_2: xL1_2_D3_2 + xL1_3_D3_2 - xL2_1_D3_2 - xL3_1_D3_2 = 0
+NodeCons|2D1_2: - xL1_2_D1_2 + xL2_1_D1_2 + xL2_3_D1_2 - xL3_2_D1_2 = -5
+NodeCons|2D1_3: - xL1_2_D1_3 + xL2_1_D1_3 + xL2_3_D1_3 - xL3_2_D1_3 = 0
+NodeCons|2D2_1: - xL1_2_D2_1 + xL2_1_D2_1 + xL2_3_D2_1 - xL3_2_D2_1 = 5
+NodeCons|2D2_3: - xL1_2_D2_3 + xL2_1_D2_3 + xL2_3_D2_3 - xL3_2_D2_3 = 8
+NodeCons|2D3_1: - xL1_2_D3_1 + xL2_1_D3_1 + xL2_3_D3_1 - xL3_2_D3_1 = 0
+NodeCons|2D3_2: - xL1_2_D3_2 + xL2_1_D3_2 + xL2_3_D3_2 - xL3_2_D3_2 = -8
+NodeCons|3D1_2: - xL1_3_D1_2 - xL2_3_D1_2 + xL3_1_D1_2 + xL3_2_D1_2 = 0
+NodeCons|3D1_3: - xL1_3_D1_3 - xL2_3_D1_3 + xL3_1_D1_3 + xL3_2_D1_3 = -7
+NodeCons|3D2_1: - xL1_3_D2_1 - xL2_3_D2_1 + xL3_1_D2_1 + xL3_2_D2_1 = 0
+NodeCons|3D2_3: - xL1_3_D2_3 - xL2_3_D2_3 + xL3_1_D2_3 + xL3_2_D2_3 = -8
+NodeCons|3D3_1: - xL1_3_D3_1 - xL2_3_D3_1 + xL3_1_D3_1 + xL3_2_D3_1 = 7
+NodeCons|3D3_2: - xL1_3_D3_2 - xL2_3_D3_2 + xL3_1_D3_2 + xL3_2_D3_2 = 8
+End

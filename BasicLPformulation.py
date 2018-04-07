@@ -28,6 +28,6 @@ if __name__ == '__main__':
     prob.writeMPS("example2_1.mps")
     prob.writeLP("example2_1.lpt")
     prob.solve()
-    print "Status:", LpStatus[prob.status]
+    print("Status:", LpStatus[prob.status])
     for v in prob.variables():
-        print v.name, "=", v.varValue
+        print(v.name, "=", v.varValue)
