@@ -1,3 +1,5 @@
+THIS CODE IS ORIGINALLY FROM DR. B FROM WWW.GROTTO-NETWORKING.COM
+I AM TESTING THE CODE AND DEVELOPING IT USING TECHNIQUES OTHER THAN LP.
 This directory/zip contains sample files to get you started with networks, graphs,
 and linear programming problem formulations in Python.
 
