@@ -89,9 +89,10 @@ if __name__ == "__main__":
     # Here we define demands using a Python dictionary. A Python tuple (a,b)
     # is used for the demand pair, and its dictionary value represents its
     # volume.
-    demands = {(1, 2): 5, (2, 1): 5, (1, 3): 7, (3, 1): 7, (2, 3): 8, (3, 2): 8}
+    #demands = {(1, 2): 5, (2, 1): 5, (1, 3): 7, (3, 1): 7, (2, 3): 8, (3, 2): 8}
+    demands = {(1, 2): 17}
     print(demands)
-    print(demands[(2, 1)])
+    #print(demands[(2, 1)])
     prob, flow_vars = basic_capacitated_node_link(g, demands)
     prob.writeLP("basicNodeLink2_1.lpt")
     prob.solve()
