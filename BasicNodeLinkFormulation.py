@@ -90,7 +90,7 @@ if __name__ == "__main__":
     # is used for the demand pair, and its dictionary value represents its
     # volume.
     #demands = {(1, 2): 5, (2, 1): 5, (1, 3): 7, (3, 1): 7, (2, 3): 8, (3, 2): 8}
-    demands = {(1, 2): 17}
+    demands = {(1, 3): 4, (1, 2): 7, (1, 2): 6}
     print(demands)
     #print(demands[(2, 1)])
     prob, flow_vars = basic_capacitated_node_link(g, demands)
@@ -98,5 +98,7 @@ if __name__ == "__main__":
     prob.solve()
     print("Status:", LpStatus[prob.status])
     for v in prob.variables():
+        if v.varValue == 0.0:
+            continue
         print(v.name, "=", v.varValue)
 
