@@ -1,19 +1,15 @@
 \* Basic Node Link Formulation *\
 Minimize
-OBJ: xL1_2_D1_2 + xL1_2_D1_3 + xL1_3_D1_2 + xL1_3_D1_3 + xL2_1_D1_2
- + xL2_1_D1_3 + xL2_3_D1_2 + xL2_3_D1_3 + xL3_1_D1_2 + xL3_1_D1_3 + xL3_2_D1_2
- + xL3_2_D1_3
+OBJ: xL1_2_D1_2 + 0.5 xL1_3_D1_2 + xL2_1_D1_2 + 0.5 xL2_3_D1_2
+ + 0.5 xL3_1_D1_2 + 0.5 xL3_2_D1_2
 Subject To
-LinkCap|L1_2: xL1_2_D1_2 + xL1_2_D1_3 <= 10
-LinkCap|L1_3: xL1_3_D1_2 + xL1_3_D1_3 <= 10
-LinkCap|L2_1: xL2_1_D1_2 + xL2_1_D1_3 <= 10
-LinkCap|L2_3: xL2_3_D1_2 + xL2_3_D1_3 <= 7
-LinkCap|L3_1: xL3_1_D1_2 + xL3_1_D1_3 <= 10
-LinkCap|L3_2: xL3_2_D1_2 + xL3_2_D1_3 <= 7
-NodeCons|1D1_2: xL1_2_D1_2 + xL1_3_D1_2 - xL2_1_D1_2 - xL3_1_D1_2 = 6
-NodeCons|1D1_3: xL1_2_D1_3 + xL1_3_D1_3 - xL2_1_D1_3 - xL3_1_D1_3 = 4
-NodeCons|2D1_2: - xL1_2_D1_2 + xL2_1_D1_2 + xL2_3_D1_2 - xL3_2_D1_2 = -6
-NodeCons|2D1_3: - xL1_2_D1_3 + xL2_1_D1_3 + xL2_3_D1_3 - xL3_2_D1_3 = 0
+LinkCap|L1_2: xL1_2_D1_2 <= 100
+LinkCap|L1_3: xL1_3_D1_2 <= 100
+LinkCap|L2_1: xL2_1_D1_2 <= 100
+LinkCap|L2_3: xL2_3_D1_2 <= 100
+LinkCap|L3_1: xL3_1_D1_2 <= 100
+LinkCap|L3_2: xL3_2_D1_2 <= 100
+NodeCons|1D1_2: xL1_2_D1_2 + xL1_3_D1_2 - xL2_1_D1_2 - xL3_1_D1_2 = 17
+NodeCons|2D1_2: - xL1_2_D1_2 + xL2_1_D1_2 + xL2_3_D1_2 - xL3_2_D1_2 = -17
 NodeCons|3D1_2: - xL1_3_D1_2 - xL2_3_D1_2 + xL3_1_D1_2 + xL3_2_D1_2 = 0
-NodeCons|3D1_3: - xL1_3_D1_3 - xL2_3_D1_3 + xL3_1_D1_3 + xL3_2_D1_3 = -4
 End

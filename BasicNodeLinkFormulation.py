@@ -80,9 +80,9 @@ if __name__ == "__main__":
     # convenient utility function to convert it to a directed graph.
     g_temp = nx.Graph()
     # Don't need to add nodes separately.
-    g_temp.add_edge(1, 2, capacity=10, weight=1)  # add a "capacity" parameter
-    g_temp.add_edge(1, 3, capacity=10, weight=1)  # can have any name you like
-    g_temp.add_edge(2, 3, capacity=7, weight=1)
+    g_temp.add_edge(1, 2, capacity=100, weight=1)  # add a "capacity" parameter
+    g_temp.add_edge(1, 3, capacity=100, weight=.5)  # can have any name you like
+    g_temp.add_edge(2, 3, capacity=100, weight=.5)
     print(g_temp.edges(data=True))
     g = g_temp.to_directed()  # Nice function to produce a directed version
     print(g.edges(data=True))
@@ -90,7 +90,7 @@ if __name__ == "__main__":
     # is used for the demand pair, and its dictionary value represents its
     # volume.
     #demands = {(1, 2): 5, (2, 1): 5, (1, 3): 7, (3, 1): 7, (2, 3): 8, (3, 2): 8}
-    demands = {(1, 3): 4, (1, 2): 7, (1, 2): 6}
+    demands = {(1, 2): 17}
     print(demands)
     #print(demands[(2, 1)])
     prob, flow_vars = basic_capacitated_node_link(g, demands)
