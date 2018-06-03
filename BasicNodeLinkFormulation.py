@@ -6,7 +6,7 @@
 """
 import time
 
-import pandas as pd
+#import pandas as pd
 import networkx as nx
 from pulp import LpProblem, LpMinimize, LpVariable, LpStatus, lpSum
 import random

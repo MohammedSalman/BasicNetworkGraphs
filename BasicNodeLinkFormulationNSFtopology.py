@@ -5,7 +5,7 @@
     network and demands.
 """
 import time
-
+import numpy as np
 #import pandas as pd
 import networkx as nx
 from pulp import LpProblem, LpMinimize, LpVariable, LpStatus, lpSum
@@ -14,6 +14,9 @@ import random
 # df = pd.DataFrame()
 start_time = time.time()
 
+def generate_random_demands(rows, columns):
+    sample = np.random.uniform(low=0, high=0.09, size=(rows, columns))
+    return sample
 
 def basic_capacitated_node_link(g, demands):
     """ Creates a basic capacitated network design problem in node-link formulation
@@ -123,7 +126,7 @@ if __name__ == "__main__":
     d3 = random.uniform(0, min_cut)
     d4 = random.uniform(0, min_cut)
     d5 = random.uniform(0, min_cut)
-    import numpy as np
+
 
     steps = 0.2
     fr = 0.0
@@ -185,18 +188,43 @@ if __name__ == "__main__":
         1.33012711, 1.66993377, 1.3466623 , 0.66448641, 0.15377026,
         1.02117531, 0.8056676 , 1.16976452, 0.15983921, 0.2209544 ,
         1.16306075, 1.98567681]
-    demands = {(1, 2): dd[0], (1, 3): dd[1], (2, 1): dd[2], (2, 3): dd[3], (3, 1): dd[4], (3, 2): dd[5]}
-    prob, flow_vars = basic_capacitated_node_link(g, dd)
+
+    #generate tuples first
+    list_of_tuples = []
+    for i in range(1, 14+1):
+        for j in range(1, 14+1):
+            if i == j:
+                continue
+            tuple = (i, j)
+            list_of_tuples.append(tuple)
+    #print("len is: ", len(list_of_tuples))
+    #print(list_of_tuples)
+    dd = generate_random_demands(1, 182)
+    #print(len(dd))
+    #print(dd)
+    #dd[0] = [0.07] * 182
+    #print(dd[0])
+    demands = dict(zip(list_of_tuples, dd[0]))
+    #demands = {(1, 2): dd[0], (1, 3): dd[1], (2, 1): dd[2], (2, 3): dd[3], (3, 1): dd[4], (3, 2): dd[5]}
+    prob, flow_vars = basic_capacitated_node_link(g, demands)
     tic=time.time()
     prob.solve()
     print("Taken time: ", time.time()-tic, " Seconds!")
+
+    from termcolor import colored
+
 
 
     for v in prob.variables():
         # if v.varValue == 0.0: continue
         # outList.append(v.varValue)
         templist.append((v.varValue))
+        if v.varValue > 2:
+            #colored('hello', 'red')
+            print(colored("unrealistic number exist: ", 'red'), colored(v.varValue,'blue'))
+
     print(templist)
+    print(len(templist))
 
 
 
