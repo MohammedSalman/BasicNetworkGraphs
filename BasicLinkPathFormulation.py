@@ -16,6 +16,7 @@ if __name__ == '__main__':
     demands = jc.j_to_demands(json.load(open("demandLinkPathEx1.json")))
     # Get candidate paths
     paths = jc.j_to_paths(json.load(open("pathsLinkPathEx1.json")))
+    #print("paths are: ", paths)
     # Set up Node Link Formulation Linear Program
     # First some nice lists to help us stay organized
     demand_list = sorted(demands.keys())
@@ -36,6 +37,7 @@ if __name__ == '__main__':
         for p in range(len(paths[d])):
             name = "xD{}_{}P_{}".format(d[0], d[1], str(p))
             demand_paths[d, p] = LpVariable(name, 0)
+    print("demand_paths are: ", demand_paths)
     # Add the objective function which for now is the sum of all the
     # demand path variables times their respective path length.
     tmp_list = []
